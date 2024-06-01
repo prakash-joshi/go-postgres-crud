@@ -135,7 +135,7 @@ func getStockById(id int64) (models.Stock, error) {
 	db := createConnection()
 	defer db.Close()
 	var stock models.Stock
-	sqlStatement := `SELECT * FROM stocks WHERE stocksid=$1`
+	sqlStatement := `SELECT * FROM stocks WHERE stockid=$1`
 	row := db.QueryRow(sqlStatement, id)
 	err := row.Scan(&stock.StockID, &stock.Name, &stock.Price, &stock.Company)
 
